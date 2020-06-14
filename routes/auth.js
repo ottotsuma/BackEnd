@@ -48,4 +48,23 @@ router.post('/login', async (req, res) => {
     res.header('auth-token', token).send(token);
 });
 
+// user pays , 
+router.post('/paid', async (req, res) => {
+    (console.log('paid route'))
+ });
+
+
+// forgotten password , 
+router.post('/forgot', async (req, res) => { 
+    // give them a hidden message to remind them of their password? 
+});
+//reset password 
+router.post('/reset', async (req, res) => {
+    const {error} = loginValidation(req.body);
+    if (error) return res.status(400).send(error.details[0].message);
+    const user = await User.findOne({email: req.body.email});
+    if (!user) return res.status(400).send('User by this email is not found')
+    // replace password? 
+ });
+
 module.exports = router;
