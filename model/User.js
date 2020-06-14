@@ -25,4 +25,7 @@ const userSchema = new mongoose.Schema({
     }
 });
 
+// need to add resetPasswordToken, String
+// resetPasswordExpires, Date 
+
 module.exports = mongoose.model('User', userSchema);

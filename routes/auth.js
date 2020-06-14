@@ -4,7 +4,6 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt.js');
 const {registerValidation, loginValidation} = require('../Validation');
 
-
 router.post('/register', async (req, res) => {
 
 //LETS VALIDATE THE DATA BEFORE WE ADD A User
@@ -114,6 +113,7 @@ router.post('/paid', async (req, res) => {
           auth: {
             user: 'myemail',
             pass: 'mypass'
+            // put email and password into here maybe use dotenv for both
           }
         });
         var mailOptions = {
