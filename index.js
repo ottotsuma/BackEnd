@@ -1,8 +1,7 @@
-
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
-const dotenv = require('dovenv');
+const dotenv = require('dotenv');
 //import routes
 const authRoute = require('./routes/auth');
 
