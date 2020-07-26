@@ -46,19 +46,22 @@ const data = {
     password: "PaulPass"
 }
 const body = JSON.stringify(data)
+console.log(data)
 const paramsPost = {
     headers: {
-     Authorization: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZWQzMmI0MTdmMDdhZDQ0NjQ4NjNjZTIiLCJpYXQiOjE1OTA4OTc4Mzh9.EpMZ8IKvUn3DvIGLq9mPIefaBCzdyPYTTsGX-zSrlKk"
-   },
+    'Accept': 'application/json',
+    'Content-Type': 'application/json'
+  },
    method: "POST",
     body: body
 }
 async function fetchContent() {
-    console.log(paramsPost)
   let res = await fetch("http://localhost:3000/api/user/login", paramsPost);
   console.log(res)
+  for(const header of res.headers){
+   console.log(header);
+}
   let data = await res.status;
-  console.log(data) 
   let par = document.createElement('p');
   var text = document.createTextNode(data);
   par.appendChild(text);
@@ -77,7 +80,5 @@ async function fetchContent() {
 </footer>
 
 <!-- Scripts -->
-
 </body>
-
 </html>

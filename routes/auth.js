@@ -34,7 +34,7 @@ const hashedPassword = await bcrypt.hash(req.body.password, salt);
 });
 
 // delete user
-router.delete("/delete/", async (req, res) => {
+router.delete("/delete", async (req, res) => {
   const user = await User.findOne({email: req.body.email});
   const email = req.params.email
   console.log(user);
@@ -47,7 +47,7 @@ router.delete("/delete/", async (req, res) => {
 });
 
 // get info
-router.get("/user/", async (req, res) => {
+router.get("/user", async (req, res) => {
   try {
     const user = await User.findOne({email: req.body.email});
     console.log(user)
@@ -81,6 +81,7 @@ router.post('/login', async (req, res) => {
     if(!validPass) return res.status(400).send('Email or Password is Wrong');
 
     // create and assign a token
+    console.log('Token')
     const token = jwt.sign({_id: user._id}, process.env.TOKEN_SECRET);
     res.header('auth-token', token).send(token);
 });
