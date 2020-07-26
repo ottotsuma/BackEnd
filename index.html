@@ -57,10 +57,10 @@ const paramsPost = {
 }
 async function fetchContent() {
   let res = await fetch("http://localhost:3000/api/user/login", paramsPost);
-  console.log(res)
-  for(const header of res.headers){
-   console.log(header);
-}
+//   console.log(res)
+//   for(const header of res.headers){
+//    console.log(header);
+// }
   let data = await res.status;
   let par = document.createElement('p');
   var text = document.createTextNode(data);
