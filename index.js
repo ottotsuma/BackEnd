@@ -21,6 +21,8 @@ app.use(
     })
   );
 //   app.use(cors());
+express.static('./html/index.html')
+app.use(express.static('html'))
 
 //route middlewears
 app.use('/api/user', authRoute);
