@@ -72,6 +72,7 @@ router.patch("/patch", async (req, res) => {
 
 // login
 router.post('/login', async (req, res) => {
+  console.log("login")
     const {error} = loginValidation(req.body);
     if (error) return res.status(400).send(error.details[0].message);
     const user = await User.findOne({email: req.body.email});

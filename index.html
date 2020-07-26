@@ -7,3 +7,77 @@
             .then((response) => response.json())
             .then(app.get());
     }); -->
+
+    <!DOCTYPE HTML>
+
+<html>
+<head>
+<title>Mongo</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+<!-- <link rel="stylesheet" href="assets/css/levels.css" />
+<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript> -->
+</head>
+<body class="is-preload">
+
+
+<!-- Wrapper -->
+<div id="wrapper">
+
+<!-- Header -->
+<!-- <header id="header" class="alt">
+<span class="logo"><img src="images/race2.png" alt="sword" height="15%" width="15%" /></span> -->
+<h1>Header</h1>
+</header>
+
+<!-- Main -->
+<div id="main">
+
+<!-- Introduction -->
+<section id="intro" class="main">
+<h1>Main</h1>
+<script> 
+// Function declared as async so await can be used
+//     email: "paul@Smith.com",
+//     name: "Paul Smith",
+//     password: "PaulPass"
+const data = {
+    email: "paul@Smith.com",
+    password: "PaulPass"
+}
+const body = JSON.stringify(data)
+const paramsPost = {
+    headers: {
+     Authorization: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZWQzMmI0MTdmMDdhZDQ0NjQ4NjNjZTIiLCJpYXQiOjE1OTA4OTc4Mzh9.EpMZ8IKvUn3DvIGLq9mPIefaBCzdyPYTTsGX-zSrlKk"
+   },
+   method: "POST",
+    body: body
+}
+async function fetchContent() {
+    console.log(paramsPost)
+  let res = await fetch("http://localhost:3000/api/user/login", paramsPost);
+  console.log(res)
+  let data = await res.status;
+  console.log(data) 
+  let par = document.createElement('p');
+  var text = document.createTextNode(data);
+  par.appendChild(text);
+  document.body.appendChild(par);
+  return text;
+}
+</script>
+<button onclick="fetchContent()">Post! Login!</button>
+</section>
+
+</div> <!-- main div end-->
+
+<!-- Footer -->
+<footer id="footer">
+<h4>Footer</h4>
+</footer>
+
+<!-- Scripts -->
+
+</body>
+
+</html>

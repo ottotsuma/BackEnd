@@ -15,14 +15,14 @@ mongoose.connect(process.env.DB_CONNECT, { useNewUrlParser: true }, () => consol
 
 //Middlewears
 app.use(express.json());
-app.use(
-    cors({
-      allowedHeaders: "X-Requested-With, Content-Type, Accept, Authorization",
-      origin:
-          "http://localhost:3000"
-    })
-  );
-//   app.use(cors());
+// app.use(
+//     cors({
+//       allowedHeaders: "X-Requested-With, Content-Type, Accept, Authorization",
+//       origin:
+//           "http://localhost:3000"
+//     })
+//   );
+  app.use(cors());
 
 //route middlewears
 app.use('/api/user', authRoute);
