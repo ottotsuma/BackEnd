@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
+const cors = require("cors");
 //import routes
 const authRoute = require('./routes/auth');
 
@@ -14,6 +15,14 @@ mongoose.connect(process.env.DB_CONNECT, { useNewUrlParser: true }, () => consol
 
 //Middlewears
 app.use(express.json());
+app.use(
+    cors({
+      allowedHeaders: "X-Requested-With, Content-Type, Accept, Authorization",
+      origin:
+          "http://localhost:3000"
+    })
+  );
+//   app.use(cors());
 
 //route middlewears
 app.use('/api/user', authRoute);
